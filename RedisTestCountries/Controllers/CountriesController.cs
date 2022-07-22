@@ -33,7 +33,7 @@ namespace RedisTestCountries.Controllers
 
                 var responseData = await response.Content.ReadAsStringAsync();
 
-                var countries = JsonConvert.DeserializeObject<List<Country>>(responseData);
+                //var countries = JsonConvert.DeserializeObject<List<Country>>(responseData);
 
                 var memoryCacheEntryOptions = new DistributedCacheEntryOptions
                 {
@@ -43,7 +43,7 @@ namespace RedisTestCountries.Controllers
 
                 await _distributedCache.SetStringAsync(CountriesKey, responseData, memoryCacheEntryOptions);
 
-                return Ok(countries);
+                return Ok(responseData);
             }
         }
     }
