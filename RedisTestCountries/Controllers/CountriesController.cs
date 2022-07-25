@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using RedisTestCountries.Models;
 
 namespace RedisTestCountries.Controllers
@@ -23,7 +24,7 @@ namespace RedisTestCountries.Controllers
         {
             var countriesObject = await _distributedCache.GetStringAsync(CountriesKey);
             if (!string.IsNullOrWhiteSpace(countriesObject))
-                return Ok(countriesObject);
+                return Ok(JArray.Parse(countriesObject));
 
             const string restCountriesUrl = "https://restcountries.com/v3.1/all";
 
@@ -43,7 +44,7 @@ namespace RedisTestCountries.Controllers
 
                 await _distributedCache.SetStringAsync(CountriesKey, responseData, memoryCacheEntryOptions);
 
-                return Ok(responseData);
+                return Ok(JArray.Parse(responseData));
             }
         }
     }

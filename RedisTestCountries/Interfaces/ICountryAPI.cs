@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Microsoft.Extensions.Caching.Distributed;
+using Newtonsoft.Json.Linq;
 using Refit;
 
 namespace RedisTestCountries.Interfaces
@@ -7,5 +8,7 @@ namespace RedisTestCountries.Interfaces
     {
         [Get("/api/Countries")]
         Task<ApiResponse<JArray>> GetAsync();
+
+        
     }
 }
