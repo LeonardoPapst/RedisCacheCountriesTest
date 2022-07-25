@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-namespace RedisTestCountries.Models
+﻿namespace RedisTestCountries.Models
 {
     public class Country
     {

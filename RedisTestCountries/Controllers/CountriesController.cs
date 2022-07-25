@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using RedisTestCountries.Models;
 
 namespace RedisTestCountries.Controllers
 {
